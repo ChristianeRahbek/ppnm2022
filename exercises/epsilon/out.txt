@@ -1,0 +1,17 @@
+my max int = 2147483647
+Compared to: int_exp = 2147483647
+
+my min int = -2147483648
+Compared to int_exp = -2147483648
+
+my double machine epsilon = 2.22044604925031E-16
+compared to: 2.22044604925031E-16
+my float machine epsilon = 1.192093E-07
+compared to: 1.19209289550781E-07 
+
+sumA-1 = 0.000000e+000 should be 1.110223e-010
+sumB-1 = 1.110223e-010 should be 1.110223e-010
+
+
+Testing approx function...a = 1.0, b = 2.0 should return false, does return: False
+a = 1.0, b = 1.0 should return true, does return: True
