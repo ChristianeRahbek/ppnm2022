@@ -1,6 +1,7 @@
 using System;
 using static System.Console;
 using static System.Math;
+using static vec;
 
 class main{
 	static void Main(){
@@ -21,7 +22,7 @@ class main{
 		double n = u.norm();
 		Write($"norm(u) = {n}\n");
 		Write($"Testing toString() on u in next line: \n");
-		u.toString();
+		WriteLine(u); //u.toString();
 		Write($"Testing approx(u, u): \n");
 		Write($"{u.approx(u)}\n");
 		Write($"{approx(u,u)}\n");

@@ -40,8 +40,8 @@ public class vec{
 		return this.x * other.x + this.y * other.y + this.z * other.z; //takes dot product like this: vec1.dot(vec2)
 	}
 	public static double dot(vec v, vec w) {
-		//why does this not work?: return v.dot(w);
-		return v.x * w.x + v.y * w.y + v.z * w.z;
+		return v.dot(w);
+		//return v.x * w.x + v.y * w.y + v.z * w.z;
 	}
 	public vec cross(vec other) {
 		double a1, b1, c1;
@@ -60,7 +60,7 @@ public class vec{
 		return v.norm();
 	}
 	public override string ToString() {
-		return "Vector: [{x}, {y}, {z}]\n";
+		return "Vector: [" + x + ", " + y + ", " + z + "]\n";
 	}
 
 	//making approx method
