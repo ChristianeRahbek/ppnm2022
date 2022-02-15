@@ -1,4 +1,5 @@
 using static System.Console;
+using static System.Math;
 
 public class vec{
 	public double x, y, z;
@@ -35,5 +36,42 @@ public class vec{
 	public static vec operator-(vec v) {
 		return -1*v;				//using the multiply operator
 	}
+	public double dot(vec other) {
+		return this.x * other.x + this.y * other.y + this.z * other.z; //takes dot product like this: vec1.dot(vec2)
+	}
+	public static double dot(vec v, vec w) {
+		//why does this not work?: return v.dot(w);
+		return v.x * w.x + v.y * w.y + v.z * w.z;
+	}
+	public vec cross(vec other) {
+		double a1, b1, c1;
+		a1 = this.y * other.z - this.z * other.y;
+		b1 = this.z * other.x - this.x * other.z;
+		c1 = this.x * other.y - this.y * other.x;
+		return new vec(a1, b1, c1);
+	}
+	public static vec cross(vec v, vec w) {
+		return v.cross(w);
+	}
+	public double norm() {
+		return Sqrt(this.x*this.x + this.y*this.y + this.z*this.z);
+	}
+	public static double norm(vec v) {
+		return v.norm();
+	}
+	public override string ToString() {
+		return "Vector: [{x}, {y}, {z}]\n";
+	}
 
+	//making approx method
+	
+	static bool approx(double a, double b, double tau = 1e-9, double eps = 1e-9) {
+		return Abs(a-b) < tau || Abs(a-b) / (Abs(a) + Abs(b)) < eps;
+	}
+	public bool approx(vec other) {
+		return approx(this.x, other.x) || approx(this.y, other.y) || approx(this.z, other.z);
+	}
+	public static bool approx(vec v, vec w) {
+		return v.approx(w);
+	}
 }

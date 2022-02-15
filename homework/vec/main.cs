@@ -13,6 +13,20 @@ class main{
 		var tmp = u*5;
 		tmp.print("u * 5 = ");
 		var w = 3*u - v;
-		w.print("w = 3*u - v = ");
+		w.print("3*u - v = ");
+		double d = dot(u,v);
+		Write($"dot(u, v) = {d}\n");
+		w = cross(u, v);
+		w.print("cross(u, v) = ");
+		double n = u.norm();
+		Write($"norm(u) = {n}\n");
+		Write($"Testing toString() on u in next line: \n");
+		u.toString();
+		Write($"Testing approx(u, u): \n");
+		Write($"{u.approx(u)}\n");
+		Write($"{approx(u,u)}\n");
+		Write($"Testing approx(u, v): \n");
+		Write($"{u.approx(v)}\n");
+		Write($"{approx(u,v)}\n");
 	}
 }
