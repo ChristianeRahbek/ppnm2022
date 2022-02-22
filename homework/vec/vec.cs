@@ -36,6 +36,7 @@ public class vec{
 	public static vec operator-(vec v) {
 		return -1*v;				//using the multiply operator
 	}
+	//QUESTION B:
 	public double dot(vec other) {
 		return this.x * other.x + this.y * other.y + this.z * other.z; //takes dot product like this: vec1.dot(vec2)
 	}
@@ -63,6 +64,7 @@ public class vec{
 		return "Vector: [" + x + ", " + y + ", " + z + "]\n";
 	}
 
+	//QUESTION C:
 	//making approx method
 	
 	static bool approx(double a, double b, double tau = 1e-9, double eps = 1e-9) {

@@ -1,18 +1,22 @@
+Testing question A:
 u = 1 2 3
 -u = -1 -2 -3
 v = -1 0 1
 u + v = 0 2 4
 u * 5 = 5 10 15
 3*u - v = 4 6 8
+
+Testing question B:
 dot(u, v) = 2
 cross(u, v) = 2 -4 2
 norm(u) = 3.74165738677394
 Testing toString() on u in next line: 
 Vector: [1, 2, 3]
 
-Testing approx(u, u): 
-True
-True
-Testing approx(u, v): 
-False
-False
+Testing question C:
+Testing approx(u, u), expecting true: 
+u.approx(u) = True
+approx(u,u) = True
+Testing approx(u, v), expecting false: 
+u.approx(v) = False
+approx(u,v) = False

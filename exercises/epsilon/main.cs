@@ -48,6 +48,7 @@ class main{
 
 		for(int i = 0; i < n; i++) {sumB += tiny;} sumB += 1;
 		Write($"sumB-1 = {sumB-1:e} should be {n*tiny:e}\n");
+		//write difference here
 		WriteLine($"");
 	}
 	static bool approx(double a, double b, double tau = 1e-9, double epsilon= 12e-9){

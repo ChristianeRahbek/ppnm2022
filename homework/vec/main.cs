@@ -5,6 +5,7 @@ using static vec;
 
 class main{
 	static void Main(){
+		WriteLine($"Testing question A:");
 		vec u = new vec(1, 2, 3);
 		u.print("u = ");
 		(-u).print("-u = ");
@@ -15,6 +16,9 @@ class main{
 		tmp.print("u * 5 = ");
 		var w = 3*u - v;
 		w.print("3*u - v = ");
+		WriteLine($"");		
+
+		WriteLine($"Testing question B:");
 		double d = dot(u,v);
 		Write($"dot(u, v) = {d}\n");
 		w = cross(u, v);
@@ -23,11 +27,13 @@ class main{
 		Write($"norm(u) = {n}\n");
 		Write($"Testing toString() on u in next line: \n");
 		WriteLine(u); //u.toString();
-		Write($"Testing approx(u, u): \n");
-		Write($"{u.approx(u)}\n");
-		Write($"{approx(u,u)}\n");
-		Write($"Testing approx(u, v): \n");
-		Write($"{u.approx(v)}\n");
-		Write($"{approx(u,v)}\n");
+		
+		WriteLine($"Testing question C:");
+		Write($"Testing approx(u, u), expecting true: \n");
+		Write($"u.approx(u) = {u.approx(u)}\n");
+		Write($"approx(u,u) = {approx(u,u)}\n");
+		Write($"Testing approx(u, v), expecting false: \n");
+		Write($"u.approx(v) = {u.approx(v)}\n");
+		Write($"approx(u,v) = {approx(u,v)}\n");
 	}
 }
