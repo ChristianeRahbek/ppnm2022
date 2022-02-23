@@ -5,9 +5,12 @@ using static System.Math;
 
 public class passf {
 	public static void Main() {
-		make_table(Sin, 0, PI, PI/10);
-		make_table(Sin, 0, 2*PI, 2*PI/10);
-		make_table(Sin, 0, 3*PI, 3*PI/10);	
+		table(1);
+		table(2);
+		table(3);
+	}
+	public static void table(double k) {
+		make_table(Sin, 0, k*PI, k*PI/10);	
 	}
 
 	static void make_table(Func<double, double> f, double a, double b, double dx) {
