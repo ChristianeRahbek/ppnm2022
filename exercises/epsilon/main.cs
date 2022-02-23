@@ -48,7 +48,8 @@ class main{
 
 		for(int i = 0; i < n; i++) {sumB += tiny;} sumB += 1;
 		Write($"sumB-1 = {sumB-1:e} should be {n*tiny:e}\n");
-		//write difference here
+		//when i add epsilon to 1 i will still get 1, as the computer runs down the numbers.
+		//but when I add a lot of epsilons first they add up to become big, and then I can add them to 1.
 		WriteLine($"");
 	}
 	static bool approx(double a, double b, double tau = 1e-9, double epsilon= 12e-9){

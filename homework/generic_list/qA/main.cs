@@ -1,9 +1,11 @@
 using static System.Console;
+using System;
 
-pulic class Main{
-	public void main(){
 
-		var list = new genlist<double[]>
+class main{
+	public static void Main(){
+
+		var list = new genlist<double[]>();
 		char[] delimiters = {' ','\t'};
 		var options = StringSplitOptions.RemoveEmptyEntries;
 

@@ -1,8 +1,8 @@
 public class genlist<T> {
-	public t[] data;
+	public T[] data;
 
 	public int size {
-		get{return data.Length();} //property
+		get{return data.Length;} //property
 	}
 
 	public genlist() {
