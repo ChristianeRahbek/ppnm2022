@@ -1,0 +1,6 @@
+N = 1E+08
+Harmonic sum from 1 to 50000000
+Harmonic sum from 50000000 to 100000001
+Harmonic sum from 50000000 to 100000001 gives 0.693147195559714
+Harmonic sum from 1 to 50000000 gives 18.3047492182933
+Harmonic sum from 1 to 100000000 is equal to 18.997896413853
