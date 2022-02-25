@@ -3,18 +3,9 @@ item number 0 is 0
 item number 1 is 1
 item number 2 is 2
 item number 3 is 3
-item number 4 is 0
-item number 5 is 0
-item number 6 is 0
-item number 7 is 0
 
 List contains:
 item number 0 is 0
 item number 1 is 2
 item number 2 is 3
-item number 3 is 0
-item number 4 is 0
-item number 5 is 0
-item number 6 is 0
-item number 7 is 0
 

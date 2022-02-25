@@ -1,3 +1,8 @@
+Printing list of int:
 1
 2
 3
+Printing list of string:
+hello
+world
+!

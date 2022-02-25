@@ -15,7 +15,7 @@ class main {
 
 	static void Write(genlist<int> list) {
 		WriteLine($"List contains:");
-		for(int i = 0; i < list.data.Length; i++) {
+		for(int i = 0; i < list.size; i++) {
 			WriteLine($"item number {i} is {list.data[i]}");
 			//this seems like a problem, as it will list the last numbers "empty" spaces in the list as 0 instead of not being there.
 		}

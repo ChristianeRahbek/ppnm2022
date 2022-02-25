@@ -6,8 +6,17 @@ public class main {
 		a.push(1);
 		a.push(2);
 		a.push(3);
+		WriteLine($"Printing list of int:");
 		for(a.start(); a.current != null; a.next()) {
 			WriteLine(a.current.item);
+		}
+		list<string> s = new list<string>();
+		s.push("hello");
+		s.push("world");
+		s.push("!");
+		WriteLine($"Printing list of string:");
+		for(s.start(); s.current != null; s.next()) {
+			WriteLine(s.current.item);
 		}
 	}
 }
