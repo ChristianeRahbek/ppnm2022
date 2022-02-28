@@ -1,0 +1,18 @@
+\
+set terminal png 
+\
+set output "complex_gamma.pyxplot.png" 
+\
+set xlabel "$Re(z)$" 
+\
+set ylabel "$Im(z)$" 
+\
+set zlabel "$|Gamma(z)|$" 
+\
+set title "Gamma function" 
+\
+set key below 
+\
+plot 3d [-5: 5] [-5: 5] [0: 6] "erf.data.txt" index 0 using 2:3:1 with surface title "Gamma function" 
+\
+
