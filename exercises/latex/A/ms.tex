@@ -1,7 +1,9 @@
+
 \documentclass[twocolumn, a4paper]{article}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{caption}
 
 \begin{document}
 \title{Exponential function}
@@ -40,9 +42,10 @@ The final implementation is just the taking eq. \ref{eq:exp} and instead of summ
 
 \section{How it works in practice}
 
-\begin{figure} \label{fig:exp_dirty}
+\begin{figure} 
 	\includegraphics{exp_pyx.pdf}
 	\caption{A plot of the "quick-and-dirty" implementation of the exponential function. Along with the plot of the function some values of the actual exponential function has been plotted.}
+	\label{fig:exp_dirty}
 \end{figure}
 
 Here we try to plot the function. It can be seen in fig. \ref{fig:exp_dirty}.

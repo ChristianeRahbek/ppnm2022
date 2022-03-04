@@ -7,7 +7,7 @@ complex_gamma.pyxplot.png: erf.data.txt Makefile
 	set zlabel "$$|Gamma(z)|$$" \n\
 	set title "Gamma function" \n\
 	set key below \n\
-	plot 3d [-5: 5] [-5: 5] [0: 6] "$<" index 0 using 2:3:1 with surface title "Gamma function" \n\
+	plot 3d [-5: 5] [-5: 5] [0: 6] "$<" index 0 using 2:3:1 with surface col black fillc red title "Gamma function" \n\
 	'| tee log.gpi | pyxplot
 
 #add points manually to  erf.tab.txt file
