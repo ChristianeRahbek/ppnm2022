@@ -8,21 +8,21 @@ RUN=$(DOTNET) exec --runtimeconfig $(CONFIG)
 CSC = mcs
 RUN = mono
 
-all: Out.txt Fig.erf.png
+all: Fig.osc.png
 
-Fig.erf.png: fig.erf.gpi erf.data.txt
+Fig.osc.png: fig.oscillator.gpi osc.data.txt
 	pyxplot $<
 
-Out.txt	erf.data.txt: main.exe 
-	$(RUN) $< 1> Out.txt 2> erf.data.txt
+osc.data.txt: main.exe 
+	$(RUN) $< 1> $@ 2> log
 
-main.exe: main.cs integrate.dll
+main.exe: main.cs matlib.dll
 
-LIBDIR = ../../matlib #path to directory of integrate.cs
-#integrate.dll: $(LIBDIR)/integrate/integrate.cs 
-integrate.dll: integrate.cs
-	$(CSC) -target:library -out:integrate.dll integrate.cs
+matlib.dll: ode.cs vector.cs
+	$(CSC) -target:library -out:./$@ $^
 
+#vector.dll: vector.cs
+#	$(CSC) -target:library -out:vector.dll vector.cs
 
 %.exe: %.cs
 	$(CSC) -t:exe $(addprefix -r:,$(filter %.dll,$^)) $(filter %.cs,$^)
