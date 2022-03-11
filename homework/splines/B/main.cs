@@ -12,7 +12,7 @@ class main{
 		double[] intlist = new double[N*steps]; //list to check integral
 		int a = 0;
 		
-		for(double i = 0.0; i <= N- stepLength; i += stepLength) {
+		for(double i = 0.0; i< N- stepLength; i += stepLength) {
 			xlist[a] = i;
 			ylist[a] = Sin(i);
 			intlist[a] = -Cos(i);
