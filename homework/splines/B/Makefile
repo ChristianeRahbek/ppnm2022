@@ -1,5 +1,5 @@
-linterp.png: data.txt linterp.gpi
-	pyxplot linterp.gpi
+linterp.png: data.txt plots.gpi
+	pyxplot plots.gpi
 
 data.txt: main.exe
 	mono $< > $@
@@ -7,7 +7,7 @@ data.txt: main.exe
 main.exe: main.cs math.dll
 	mcs -target:exe -reference:math.dll $<
 
-math.dll: vector.cs integrate.cs
+math.dll: qspline.cs integrate.cs
 	mcs -target:library -out:./$@ $^
 .PHONY:
 clean:
