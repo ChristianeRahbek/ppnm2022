@@ -21,7 +21,7 @@ public class qspline {
 		for(int i = 0; i < n - 2; i++) {
 			c[i + 1] = p[i + 1] - p[i] - c[i]*h[i]/h[i + 1]; 
 		}
-		c[n-2] = 2;
+		c[n-2] /= 2;
 		for(int i = n - 3; i >= 0; i--) {
 			c[i] = (p[i + 1] - p[i] - c[i + 1] * h[i + 1]) / h[i];
 		}

@@ -14,13 +14,16 @@ class main{
 		
 		for(double i = 0.0; i <= N- stepLength; i += stepLength) {
 			xlist[a] = i;
-			ylist[a] = Sin(i);
-			intlist[a] = -Cos(i);
+			ylist[a] = Sin(xlist[a]);
+			intlist[a] = 1 - Cos(xlist[a]);
+			WriteLine($"{xlist[a]} {ylist[a]} {intlist[a]}");
 			a++;
 		}
 
-		for(int i = 0; i < xlist.Length; i++) {
-			WriteLine($"{xlist[i]} {ylist[i]} {linterp(xlist, ylist, xlist[i])} {linterpInteg(xlist, ylist, xlist[i])} {intlist[i]}");
+		Write("\n\n"); //making new index
+
+		for(double z = xlist[0]; z <= xlist[xlist.Length - 1]; z += 1.0/16) {
+			WriteLine($"{z} {linterp(xlist, ylist, z)} {linterpInteg(xlist, ylist, z)}");
 		}
 
 	}

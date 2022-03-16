@@ -15,16 +15,19 @@ class main{
 		
 		for(double i = 0.0; i<= N-stepLength; i += stepLength) {
 			xlist[a] = i;
-			ylist[a] = Sin(i);
-			intlist[a] = -Cos(i);
-			divlist[a] = Cos(i);
+			ylist[a] = Sin(xlist[a]);
+			intlist[a] = 1-Cos(xlist[a]);
+			divlist[a] = Cos(xlist[a]);
+			WriteLine($"{xlist[a]} {ylist[a]} {divlist[a]} {intlist[a]}");
 			a++;
 		}
 
+		Write("\n\n");
+
 		qspline s = new qspline(xlist, ylist);
 		
-		for(int i = 0; i < xlist.Length; i++) {
-			WriteLine($"{xlist[i]} {ylist[i]} {s.spline(xlist[i])} {s.integral(xlist[i])} {intlist[i]} {s.derivative(xlist[i])} {divlist[i]}");
+		for(double z = xlist[0]; z <= xlist[xlist.Length-1]; z+=1.0/16) {
+			WriteLine($" {z} {s.spline(z)} {s.derivative(z)} {s.integral(z)}");
 		}
 
 	}

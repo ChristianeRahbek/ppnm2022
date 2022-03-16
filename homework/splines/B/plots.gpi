@@ -8,17 +8,17 @@ set title "Interpolation"
 set origin -5,4
 plot [][] \
 	"data.txt" index 0 using 1:2 with points col black title "points",\
-	"data.txt" index 0 using 1:3 with lines col red title "qspline"
+	"data.txt" index 1 using 1:2 with lines col red title "qspline"
 
 set title "Derivative"
 set origin 5,4
 plot [][] \
-	"data.txt" index 0 using 1:7 with lines col black title "exact derivative",\
-	"data.txt" index 0 using 1:6 with lines col red title "qspline derivative"
+"data.txt" index 0 using 1:3 with points col black title "exact derivative",\
+"data.txt" index 1 using 1:3 with lines col red title "qspline derivative"
 
 
 set title "Integral"
 set origin -5,-4
 plot [][] \
-	"data.txt" index 0 using 1:5 with lines col black title "exact integral",\
-	"data.txt" index 0 using 1:4 with lines col red title "qspline integral"
+"data.txt" index 0 using 1:4 with points col black title "exact integral",\
+"data.txt" index 1 using 1:4 with lines col red title "qspline integral"
