@@ -1,16 +1,37 @@
-
+using System;
+using System.Diagnostics;
 
 public class QRGS{
 	public matrix Q,R;
 	public QRGS(matrix A){
 	/* run the Gram-Schmidt process */
-		
+		Trace.Assert(A.size1 >= A.size2);
+		Q = A.copy();
+		var m = Q.size2;
+		R = new matrix(m,m);
+		for(int i = 0; i < m; i++) {
+			R[i,i] = Q[i].norm();
+			Q[i] /= R[i,i];
+			for(int j = i + 1; j < m; j++) {
+				R[i,j] = Q[i]%Q[j];
+				Q[j] -= Q[i]*R[i,j];
+			}
+		}
 	}
 
 	public vector solve(vector b){
 	/* back-substitute Q^T*b */
-		matrix QT = Q.transpose();		
-		
+		Trace.Assert(!(Q.size1 == Q.size2));
+		matrix QT = Q.transpose();
+		var x = QT*b;		
+		for(int i = x.size - 1; i >= 0; i--) {
+			double sum = 0;
+			for(int k = i + 1; k < x.size; k++) {
+				sum += R[i,k]*x[k];
+			}
+		x[i] = (x[i] - sum) / R[i,i];
+		}
+		return x;
 	}
 		
 	public double determinant(){
