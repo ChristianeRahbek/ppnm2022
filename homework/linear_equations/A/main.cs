@@ -18,6 +18,9 @@ class main{
 
 		for(int i = 0; i < n2; i++) {
 			b[i] = rand.NextDouble();
+			for(int j = 0; j < n2; j++) {
+				A2[i, j] = rand.NextDouble();
+			}
 		}
 		
 		A.print("Matrix A:");
@@ -43,7 +46,7 @@ class main{
 
 		WriteLine($"");
 		WriteLine($"Testing equation solving an {n2}x{n2} matrix");
-		A.print("Matrix A2:");
+		A2.print("Matrix A2:");
 		b.print("Vector b:");
 		var qrgs1 = new QRGS(A2);
 		WriteLine($"Solving Q2*R2*x = b:");
