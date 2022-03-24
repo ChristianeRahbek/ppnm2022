@@ -1,27 +1,30 @@
 using System;
 
-class leastSquare{
-	vector x, y, dy;
-	public leastSquare(vector x, vector y, vector dy) {
-		this.x = x;
-		this.y = y;
-		this.dy = dy;
-	}
-
-	static (vector, matrix) lsfit {
-		var fs = new Func<double,double>[] {z => 1.0, z => z};
+public class lsfit{
+	public vector c;
+	public matrix cov;
+	public Func<double, double>[] fs;
+	public lsfit(vector x, vector y, vector dy, Func<double,double>[] f) {
+		f = fs;
 		int n = x.size, m = fs.Length;
 		matrix A = new matrix(n,m);
 		vector b = new vector(n);
 		for(int i = 0; i < n; i++) {
 			b[i] = y[i]/dy[i];
 			for(int j = 0; j < m; j++) {
-				A[i, k] = fs[k](x[i])/dy[i]
+				A[i, j] = fs[j](x[i])/dy[i];
 			}
 		}
-		var qrgs = new qrgs(A);
-		vector c = qrgs.solve(b); //finding fitting values
-		var chi2 = qrgs.inverse() * qrgs.inverse().T; //finding covariance matrix
-		return (c, chi2);
+		var qrgs = new QRGS(A);
+		c = qrgs.solve(b); //finding fitting values
+		cov = qrgs.inverse() * qrgs.inverse().T; //finding covariance matrix
+	}
+
+	public double eval(double x) {
+		double fitfunc = 0;
+		for(int i = 0; i <= fs.Length; i++) {
+			fitfunc += c[i]*fs[i](x);
+		}
+		return fitfunc;
 	}
 }
