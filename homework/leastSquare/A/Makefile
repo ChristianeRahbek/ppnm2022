@@ -2,7 +2,7 @@ fit.png: fit_data.txt fit.gpi
 	pyxplot fit.gpi
 
 fit_data.txt: main.exe
-	mono  $<
+	mono  $< >$@
 
 main.exe: main.cs leastSquare.dll matrix.dll vector.dll
 	mcs $< -target:exe -reference:leastSquare.dll,matrix.dll,vector.dll

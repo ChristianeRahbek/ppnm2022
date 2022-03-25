@@ -4,5 +4,6 @@ set xlabel "time [days]"
 set ylabel "Activity (relative units)"
 set title "Fit to $^{224}$Ra data"
 set key right top
-yerrorbars [][] "fit_data.txt" index 0 using 1:2:3 with points title "Data",\
-plot [][] "fit_data.txt" index 1 using 1:2 with lines title "Fit"
+plot [][] \
+"fit_data.txt" with yerrorbars index 0 using 1:2:3 title "Data",\
+"fit_data.txt" index 1 using 1:2 with lines title "Fit"

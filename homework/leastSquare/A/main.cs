@@ -16,9 +16,7 @@ class main{
 			y[i] = Log(ys[i]);
 			dy[i] = dys[i]/ys[i];
 		}
-		
-		int N = 100;
-		double step = (t[t.size - 1] - t[0]) / N;		
+				
 
 		for(int i = 0; i < t.size; i++) {
 			WriteLine($"{t[i]} {y[i]} {dy[i]}");
@@ -37,8 +35,8 @@ class main{
 */		
 		WriteLine(""); WriteLine("");
 
-		for(double i = t[0] ; i <= t[t.size - 1]; i += step) {
-			WriteLine($"{i} {Exp(ls.eval(i))}");
+		for(double i = t[0]; i <= t[t.size - 1]; i += 1.0/8) {
+			WriteLine($"{i} {ls.eval(i)}");
 		}		
 	}
 }

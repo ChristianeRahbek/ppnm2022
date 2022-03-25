@@ -1,11 +1,12 @@
 using System;
+using static System.Console;
 
 public class lsfit{
 	public vector c;
 	public matrix cov;
 	public Func<double, double>[] fs;
 	public lsfit(vector x, vector y, vector dy, Func<double,double>[] f) {
-		f = fs;
+		fs = f;
 		int n = x.size, m = fs.Length;
 		matrix A = new matrix(n,m);
 		vector b = new vector(n);
@@ -22,7 +23,7 @@ public class lsfit{
 
 	public double eval(double x) {
 		double fitfunc = 0;
-		for(int i = 0; i <= fs.Length; i++) {
+		for(int i = 0; i < fs.Length; i++) {
 			fitfunc += c[i]*fs[i](x);
 		}
 		return fitfunc;
