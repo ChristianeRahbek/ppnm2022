@@ -1,0 +1,6 @@
+Fit parameters:
+	     a = 4.96376823101266
+	lambda = -0.175889113865224
+
+Half-life of ThX       = 3.94081910658254
+Modern tabulated value = 3.6 days

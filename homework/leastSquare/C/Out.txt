@@ -1,0 +1,9 @@
+Fit parameters:
+	     a = 4.96376823101266 +- 0.032015696053135
+	lambda = -0.175889113865224 +- 0.00436999290117714
+
+Half-life of ThX       = 3.94081910658254 +- 0.14125466829742 days
+Modern tabulated value = 3.6 days
+
+Checking if the modern value is within the tabulated uncertainty...
+Test failed, modern value is not within error of the measured data.

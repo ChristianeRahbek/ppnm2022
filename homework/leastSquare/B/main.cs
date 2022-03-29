@@ -28,10 +28,10 @@ class main{
 		var cov = ls.cov;		
 
 		double lambda = c[1];
-		//double dlambda = Sqrt(cov[1,1]); //uncertainty om lambda
+		double dlambda = Sqrt(cov[1,1]); //uncertainty om lambda
 		
 		double T = -Log(2.0)/lambda; //Findind half life.
-		//double dT = Abs(dlambda/lambda/lambda); //uncertainty on T
+		double dT = Abs(dlambda/lambda/lambda); //uncertainty on T
 		
 		WriteLine(""); WriteLine("");
 
@@ -41,11 +41,16 @@ class main{
 
 		using(var outfile = new System.IO.StreamWriter("Out.txt")){
 			outfile.WriteLine($"Fit parameters:");
-			outfile.WriteLine($"	     a = {c[0]}");
-			outfile.WriteLine($"	lambda = {c[1]}");
+			outfile.WriteLine($"	     a = {c[0]} +- {Sqrt(cov[0,0])}");
+			outfile.WriteLine($"	lambda = {c[1]} +- {dlambda}");
 			outfile.WriteLine($"");
-			outfile.WriteLine($"Half-life of ThX       = {T}");
+			outfile.WriteLine($"Half-life of ThX       = {T} +- {dT} days");
 			outfile.WriteLine($"Modern tabulated value = 3.6 days");
+			outfile.WriteLine($"");
+			outfile.WriteLine("Checking if the modern value is within the tabulated uncertainty...");
+			double Tplus = T + dT, Tminus = T - dT;
+			if(Tminus <= 3.6 && 3.6 <= Tplus) outfile.WriteLine("Succesfull test!");
+			else outfile.WriteLine("Test failed, modern value is not within error of the measured data.");
 		}		
 	}
 }

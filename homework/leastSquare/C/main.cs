@@ -9,7 +9,6 @@ class main{
 		vector dys = new vector(new double[] {5, 5, 5, 5, 5, 5, 1, 1, 1, 1});
 		var f = new Func<double, double>[] {z => 1, z => z};
 		
-
 		vector t = new vector(ts.size), y = new vector(ys.size), dy = new vector(dys.size);
 		for(int i = 0; i < ts.size; i++) {
 			t[i] = ts[i];
@@ -17,35 +16,19 @@ class main{
 			dy[i] = dys[i]/ys[i];
 		}
 				
-
 		for(int i = 0; i < t.size; i++) {
 			WriteLine($"{t[i]} {y[i]} {dy[i]}");
 		}
 
 		var ls = new lsfit(t, y, dy, f);
-		 
-		var c = ls.c;
-		var cov = ls.cov;		
 
-		double lambda = c[1];
-		//double dlambda = Sqrt(cov[1,1]); //uncertainty om lambda
-		
-		double T = -Log(2.0)/lambda; //Findind half life.
-		//double dT = Abs(dlambda/lambda/lambda); //uncertainty on T
-		
 		WriteLine(""); WriteLine("");
 
+		Tuple<double, double, double> fitfuncs;
 		for(double i = t[0]; i <= t[t.size - 1]; i += 1.0/8) {
-			WriteLine($"{i} {ls.eval(i)}");
+			fitfuncs = ls.eval(i);
+			WriteLine($"{i} {fitfuncs.Item1} {fitfuncs.Item2} {fitfuncs.Item3}");
 		}
-
-		using(var outfile = new System.IO.StreamWriter("Out.txt")){
-			outfile.WriteLine($"Fit parameters:");
-			outfile.WriteLine($"	     a = {c[0]}");
-			outfile.WriteLine($"	lambda = {c[1]}");
-			outfile.WriteLine($"");
-			outfile.WriteLine($"Half-life of ThX       = {T}");
-			outfile.WriteLine($"Modern tabulated value = 3.6 days");
-		}		
+		
 	}
 }

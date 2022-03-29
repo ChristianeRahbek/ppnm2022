@@ -1,0 +1,11 @@
+set terminal png
+set output "fits.png"
+set xlabel "time [days]"
+set ylabel "Activity (relative units)"
+set title "Fit to $^{224}$Ra data"
+set key right top
+plot [][] \
+"fit_data.txt" with yerrorbars index 0 using 1:2:3 title "Data",\
+"fit_data.txt" index 1 using 1:2 with lines title "Fit",\
+"fit_data.txt" index 1 using 1:3 with lines title "Fit + delta",\
+"fit_data.txt" index 1 using 1:4 with lines title "Fit - delta"
