@@ -1,5 +1,8 @@
+all: Out.txt
+	cat Out.txt
+
 Out.txt: main.exe QRGS.cs
-	mono $<
+	mono $< > Out.txt
 
 main.exe: main.cs QRGS.dll  math.dll
 	mcs $< -target:exe -reference:QRGS.dll,math.dll
