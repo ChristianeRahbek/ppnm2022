@@ -1,3 +1,6 @@
+Hydrogen.png: hydrogen.gpi Out.txt
+	pyxplot $<
+
 Out.txt: main.exe
 	mono $< >$@
 

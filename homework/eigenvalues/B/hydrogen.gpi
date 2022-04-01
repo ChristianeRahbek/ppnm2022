@@ -1,0 +1,39 @@
+set terminal png
+set output "Hydrogen.png"
+set multiplot
+set key top right
+set grid
+
+set title "Ground state energy"
+set xlabel "r"
+set ylabel "Energy"
+set origin -5,4
+plot [][-0.6:2.5]\
+"Out.txt" index 0 using 1:3 with lines col blue title "Exact energy",\
+"Out.txt" index 0 using 1:2 with lines col red title "Eigenvalue energy" 
+
+set title "1st excited state"
+set xlabel "r"
+set ylabel "Energy"
+set origin 5,4
+plot [][-0.5:16]\
+"Out.txt" index 1 using 1:3 with lines col blue title "Exact energy",\
+"Out.txt" index 1 using 1:2 with lines col red title "Eigenvalue energy" 
+
+set title "Ground state energy"
+set xlabel "n"
+set ylabel "Energy"
+set origin -5,-4
+plot [][-0.51:-0.4]\
+"Out.txt" index 2 using 1:3 with lines col blue title "Exact energy",\
+"Out.txt" index 2 using 1:2 with lines col red title "Eigenvalue energy" 
+
+
+set title "1st excited state"
+set xlabel "n"
+set ylabel "Energy"
+set origin 5,-4
+plot [][-0.13:-0.1]\
+"Out.txt" index 3 using 1:3 with lines col blue title "Exact energy",\
+"Out.txt" index 3 using 1:2 with lines col red title "Eigenvalue energy" 
+
