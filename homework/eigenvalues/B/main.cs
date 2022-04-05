@@ -21,11 +21,11 @@ class main{
 	}
 
 	public static void rMaxConv(double[] tabVal_energy) {
-		double maxR = 10;
-		int noOfPoints = 20;
+		double maxR = 10,dr=0.1;
 		for(int i = 0; i < tabVal_energy.Length; i++) { //checking for all tab values
 			WriteLine(""); WriteLine("");
-			for(double r = 1; r <= maxR; r += 0.2) {
+			for(double r = 1; r <= maxR; r += 0.5) {
+				int noOfPoints = (int)(r/dr);
 				matrix H1 = makeHamiltonian(noOfPoints, r);
 				(vector e, matrix V) = jacobi.cyclic(H1);
 				WriteLine($"{r} {e[i]} {tabVal_energy[i]}");
@@ -41,13 +41,13 @@ class main{
 			for(int n = 10; n <= maxN; n++) {
 				matrix H1 = makeHamiltonian(n, rMax);
 				(vector e, matrix V) = jacobi.cyclic(H1);
-				WriteLine($"{n} {e[i]} {tabVal_energy[i]}");
+				WriteLine($"{rMax/n} {e[i]} {tabVal_energy[i]}");
 			}
 		}
 	}
 
 	public static matrix makeHamiltonian(int noOfPoints, double rmax) {
-		double dr = rmax / (noOfPoints + 1);
+		double dr = rmax/noOfPoints;
 		vector r = new vector(noOfPoints);
 		
 		for(int i = 0; i < noOfPoints; i++) {

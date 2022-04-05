@@ -15,3 +15,4 @@ matrix.dll: matrix.cs vector.dll
 
 vector.dll: vector.cs
 	mcs $< -target:library
+

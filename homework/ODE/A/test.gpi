@@ -1,0 +1,9 @@
+set terminal png
+set output "test.png"
+set xlabel "x"
+set ylabel "y"
+set title "Solving u'' = -u"
+set key right top
+plot [][] \
+"testData.txt" index 0 using 1:2 with lines title "u",\
+"testData.txt" index 0 using 1:3 with lines title "u'"
