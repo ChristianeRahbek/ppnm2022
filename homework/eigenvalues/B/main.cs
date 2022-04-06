@@ -21,7 +21,7 @@ class main{
 	}
 
 	public static void rMaxConv(double[] tabVal_energy) {
-		double maxR = 10,dr=0.1;
+		double maxR = 15,dr=0.1;
 		for(int i = 0; i < tabVal_energy.Length; i++) { //checking for all tab values
 			WriteLine(""); WriteLine("");
 			for(double r = 1; r <= maxR; r += 0.5) {
@@ -35,7 +35,7 @@ class main{
 
 	public static void nConv(double[] tabVal_energy) {
 		int maxN = 100;
-		double rMax = 10.0;
+		double rMax = 15.0;
 		for(int i = 0; i < tabVal_energy.Length; i++) { //checking for all tab values
 			WriteLine(""); WriteLine("");
 			for(int n = 10; n <= maxN; n++) {
