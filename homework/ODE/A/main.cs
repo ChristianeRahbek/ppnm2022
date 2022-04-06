@@ -6,7 +6,7 @@ class main{
 		Func<double, vector, vector> f_test = delegate(double t, vector y) {
 			double theta = y[0];
 			double omega = y[1];
-			return new vector(theta, -omega);
+			return new vector(-omega, omega);
 		};
 
 		double start = 0, end = 10;
@@ -22,7 +22,7 @@ class main{
 		};
 
 		vector y0 = new vector(PI - 0.1, 0.0);
-		vector yend = ode.driver(f_test, start, y0,end, "odeIntManData.txt");
+		vector yend = ode.driver(f, start, y0,end, "odeIntManData.txt");
 		yend.print();
 	}
 }

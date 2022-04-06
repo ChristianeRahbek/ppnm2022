@@ -13,9 +13,9 @@ public class ode {
 	public static vector driver(
 		Func<double,vector,vector> f, /* the f from dy/dx=f(x,y) */
 		double x,                    /* the start-point x */
-		vector y,                    /* y(a) (y(x)) */
+		vector y,                    /* y(x) */
 		double b,                    /* the end-point of the integration */
-		string filename,	     /* name of datafile */
+		string filename,	     /* name of datafile used to plot */
 		double h=0.01,               /* initial step-size */
 		double acc=0.01,             /* absolute accuracy goal */
 		double eps=0.01              /* relative accuracy goal */
