@@ -1,0 +1,9 @@
+set terminal png
+set output "erfPlot.png"
+set xlabel "x"
+set ylabel "erf(x)"
+set title "Error function"
+set key below
+plot [][] \
+"erfCalc.txt" index 0 using 1:2 with lines title "Integrated",\
+"erfWiki.txt" index 0 using 1:2 with points title "Table values"

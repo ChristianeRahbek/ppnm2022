@@ -1,0 +1,10 @@
+set terminal png
+set output "odeIntManData.png"
+set xlabel "x"
+set ylabel "y"
+set title "Solving figure-8 problem"
+set key below
+plot [][] \
+"Out.txt" index 0 using 2:3 with lines title "Body 1",\
+"Out.txt" index 0 using 6:7 with lines title "Body 2",\
+"Out.txt" index 0 using 10:11 with lines title "Body 3" 

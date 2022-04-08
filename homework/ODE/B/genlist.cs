@@ -1,5 +1,6 @@
 public class genlist<T> { public T[] data;
-	
+
+	//public T[] data;	
 	public int size = 0, capacity = 8;
 
 	public genlist() {
