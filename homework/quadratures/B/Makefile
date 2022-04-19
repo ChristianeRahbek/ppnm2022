@@ -1,6 +1,3 @@
-erfPlot.png: erfCalc.txt main.exe erfPlot.gpi
-	pyxplot erfPlot.gpi
-
 Out.txt: main.exe
 	mono $< >$@
 

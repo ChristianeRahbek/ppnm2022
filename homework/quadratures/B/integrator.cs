@@ -34,4 +34,15 @@ public class integrator{
 		return integrate(f, 0, z);
 	}
 
+	public static double ccIntegrate(Func<double,double> f, double a, double b) {
+		Func<double, double> f1;
+		if(a == -1 && b == 1) { 
+			f1 = x => f(Cos(x))*Sin(x);
+		}
+		else {
+			f1 = x => f((a + b)/2 + (b - a)/2 * Cos(x)) * Sin(x) * (b - a)/2;
+		}
+		return integrate(f1, 0, PI);
+	}
+
 }
