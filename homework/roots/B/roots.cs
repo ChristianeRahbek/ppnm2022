@@ -1,8 +1,10 @@
 using System;
 using static System.Console;
+using static System.Double;
 using static System.Math;
 
 public class roots{
+	public static double DELTA=Pow(2,-26);
 	public static vector newton(Func<vector,vector> f, vector x0, double eps = 1e-2) {
 		int n = x0.size;
 		vector fx = f(x0);
@@ -16,20 +18,22 @@ public class roots{
 			while(true) {
 				x1 = x0 + dx*s;
 				fx1 = f(x1);
-				if(fx1.norm() < (1 - s)/2*fx.norm() || s < 1.0/32) {
+				if(fx1.norm() < (1 - s/2)*fx.norm() || s < 1.0/32) {
 					break;
 				}
 				s /= 2;
 			}
 			x0 = x1;
 			fx = fx1;
-			//Error.WriteLine($"fx.norm = {fx.norm()} and eps = {eps}");
 			if(fx.norm() < eps) break;
 		}
 		return x0;
 	}
 
-	public static matrix jacobian(Func<vector,vector> f, vector x, vector fx = null, double dx = 1e-7) {
+	public static matrix jacobian
+(Func<vector,vector> f, vector x, vector fx = null, double dx = NaN)
+{
+		if(IsNaN(dx)) dx = DELTA;
 		int n = x.size;
 		matrix J = new matrix(n,n);
 		if(fx == null) fx = f(x);

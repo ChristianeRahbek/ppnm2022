@@ -11,25 +11,27 @@ class main {
 			res[1] = -2*y[0]*(1/r + eps);
 			return res;
 		};
-		//Error.WriteLine("ode beginning...");
-		var y_found = ode.driver(sch, rmin, sch0, rmax, "ode_calcs.txt");
-		//Error.WriteLine("ode end...");
+		var y_found = ode.driver(sch, rmin, sch0, rmax, "ode_calcs.txt",acc:1e-3,eps:1e-3);
 		return new vector(y_found);
 	}
 
 	public static double findingEnergy(double rmin, double rmax) {
 		Func<vector,vector> M_eps = delegate(vector e) {
-			return F_r(e[0], rmax, rmin);
+			var f = F_r(e[0], rmax, rmin);
+			var res=new vector(f[0]);
+			return res;
 		};
-		Error.WriteLine("Made it through F_(r)?");
-		var energies = roots.newton(M_eps, new vector(-1.0));
+		var energies = roots.newton(M_eps, new vector(-1.0), eps:1e-3);
 		return energies[0];
 	}
 
+	//public static void Main(string[] args) {
 	public static void Main() {
 		double rmin = 1e-3;
 		double rmax = 8.0;
-/*		
+		//if(args.Length>0) rmin=double.Parse(args[0]);
+		//if(args.Length>1) rmax=double.Parse(args[1]);
+		
 		double E = findingEnergy(rmin, rmax);
 		WriteLine($"Finding the lowest energy solution for rmin = {rmin} and rmax = {rmax}...");
 		WriteLine($"The energy is found to be {E} Hartree");
@@ -43,23 +45,20 @@ class main {
 			for(double r = rmin; r <= rmax; r+= 1.0/64) {
 				double Fr = F_r(E, r, rmin)[0];
 				outfile.WriteLine($"{r} {Fr} {r*Exp(-r)}");
-			}//infinite loop (maybe) somewhere after this.
-		}
-*/
-		using(var outfile = new System.IO.StreamWriter("convergence.txt")) {
-			Error.WriteLine("Entering first for loop");
-			for(double r_max = 1; r_max <= 8; r_max += 0.2) {
-				Error.WriteLine($"r_max = {r_max}");
-				outfile.WriteLine($"{r_max} {findingEnergy(rmin, r_max)} {-0.5}");
-				Error.WriteLine("writeline success");
 			}
-			Error.WriteLine("first for loop done");
-			outfile.WriteLine();
+		}
 
-			for(double r_min = 1; r_min <= 1e-3; r_min -= 0.01) {
+
+		using(var outfile = new System.IO.StreamWriter("convergence.txt")) {
+			for(double r_max = 0.5; r_max <= rmax; r_max += 0.2) {
+				outfile.WriteLine($"{r_max} {findingEnergy(rmin, r_max)} {-0.5}");
+			}
+			
+			outfile.WriteLine();
+		
+			for(double r_min = 0.5; r_min >= rmin; r_min -= 0.01) {
 				outfile.WriteLine($"{r_min} {findingEnergy(r_min, rmax)} {-0.5}");
 			}
 		}
-
 	}
 }

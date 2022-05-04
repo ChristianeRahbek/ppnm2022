@@ -1,3 +1,14 @@
+all: Out.txt
+	cat $<
+	make convergence.png
+	make wavefunc.png
+
+convergence.png: convergence.txt convergence.gpi main.exe
+	pyxplot convergence.gpi
+
+wavefunc.png: wavefunc_result.txt wavefunc_plot.gpi main.exe
+	pyxplot wavefunc_plot.gpi
+
 Out.txt: main.exe
 	mono $< >$@
 

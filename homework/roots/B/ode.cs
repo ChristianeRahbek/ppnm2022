@@ -2,7 +2,23 @@ using System;
 using static System.Math;
 
 public class ode {	
-	public static (vector, vector) rkstep12(Func<double, vector, vector> f, double x, vector y, double h) {
+
+public static (vector,vector) rkstep23
+(Func<double,vector,vector> F, double x, vector y, double h)
+{// Embedded Runge-Kutta stepper of the order 2-3
+vector k0 = F(x,y);  
+vector k1 = F(x+h/2  , y+(h/2  )*k0);
+vector k2 = F(x+3*h/4, y+(3*h/4)*k1);
+vector ka = (2*k0+3*k1+4*k2)/9;
+vector kb = k1;
+vector yh = y+ka*h;
+vector er = (ka-kb)*h;
+return (yh,er);
+}//rkstep23
+
+
+
+public static (vector, vector) rkstep12(Func<double, vector, vector> f, double x, vector y, double h) {
 		vector k0 = f(x,y); /* embedded lower order formula (Euler) */
 		vector k1 = f(x+h/2,y+k0*(h/2)); /* higher order formula (midpoint) */
 		vector yh = y+k1*h;     /* y(x+h) estimate */
@@ -10,7 +26,7 @@ public class ode {
 		return (yh,er);
 	}
 
-	public static vector driver(
+public static vector driver(
 		Func<double,vector,vector> f, /* the f from dy/dx=f(x,y) */
 		double x,                    /* the start-point x */
 		vector y,                    /* y(x) */
@@ -31,7 +47,7 @@ public class ode {
 				h = b - x; /* last step should be at b */
 			}
 			
-			var (yh, erv) = rkstep12(f, x, y, h);
+			var (yh, erv) = rkstep23(f, x, y, h);
 			double tol = Max(acc, yh.norm()*eps) * Sqrt(h/(b - x));
 			double err = erv.norm();
 			if(err <= tol) { //accepting step
