@@ -1,0 +1,10 @@
+set terminal png
+set output "ann.png"
+set title "Interpolation of $g(x) = \cos(5x-1)\exp(-x^2)$ using ANN"
+set key below
+set xlabel "$x$"
+set ylabel "$g(x)$"
+set grid
+plot \
+	"Out.txt" index 0 using 1:2 with points col black title "Tabulated points",\
+	"Out.txt" index 1 using 1:2 with lines col red title "Interpolation"
