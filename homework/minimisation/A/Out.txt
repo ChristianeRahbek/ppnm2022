@@ -1,0 +1,9 @@
+Finding minima...
+
+Looking at the Rosenbrock valley function:
+Minima found to be at (0.999643947180631, 0.999264740716962) in 229 steps.
+Actual minima is at (1, 1)
+
+Looking at the Himmelblau function:
+Minima found to be at (2.99988845063412, 2.00027446274872) in 45 steps.
+Actual minima is (3, 2)
