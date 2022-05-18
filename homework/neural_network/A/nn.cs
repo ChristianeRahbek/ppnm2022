@@ -37,7 +37,7 @@ public class ann{
 
 			return sum / x.size;
 		};
-		var v = p;
-		p = qn.qnewton(Cp, v); 
+
+		p = qn.qnewton(Cp, p); 
 	}
 }
