@@ -18,7 +18,7 @@ public class ann{
 		double outputSum = 0;
 		for(int i = 0; i < n; i++) {
 			double a = p[3*i + 0]; 
-			double b = p[3*1 + 1];
+			double b = p[3*i + 1];
 			double w = p[3*i + 2];
 			outputSum += w * f((x - a) / b);
 		}
@@ -31,7 +31,7 @@ public class ann{
 			p = u;
 			double sum = 0;
 
-			for(int i = 0; i < n; i++) {
+			for(int i = 0; i < x.size; i++) {
 				sum += Pow(response(x[i]) - y[i], 2); //formula 3 in the notes
 			}
 
