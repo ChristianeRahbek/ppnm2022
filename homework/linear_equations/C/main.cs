@@ -22,7 +22,7 @@ class main{
 			var qrgs = new QRGS(A);
 			timer.Stop();
 
-			var timeElapsed = timer.ElapsedTicks; //Milliseconds;
+			var timeElapsed = timer.ElapsedTicks; 
 
 			WriteLine($"{n} {timeElapsed}");
 
