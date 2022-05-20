@@ -1,0 +1,12 @@
+set terminal png
+set output "time.png"
+set title "The time n dependance for QR decomposition"
+set key top left
+set xlabel "$n$"
+set ylabel "time tics"
+set grid
+f(x) = a*x*x*x
+fit f() "Out.txt" index 0 using 1:2 via a
+plot [][]\
+	"Out.txt" index 0 using 1:2 with points title "Decomposition time",\
+	f(x) title "Fit to $f(n) = a \cdot n^3$"
