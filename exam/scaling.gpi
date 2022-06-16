@@ -1,0 +1,9 @@
+set terminal png
+set output "scaling.png"
+set key bottom right
+set log y
+set xlabel "Matrix size"
+set ylabel "Time [ms]"
+set title "Time to find eigenvalues as a function of matrix size"
+plot [][]\
+	"scaling.txt" index 0 using 1:2 with points pointtype 3 col red title "Data"
