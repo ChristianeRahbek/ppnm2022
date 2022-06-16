@@ -14,9 +14,9 @@ This projectt contains 3 important files that builds most of the code functional
 	to the equations in the chapter on Minimization to be able to follow along. I have 
 	not done much to the code except for adding the renormalization factor.
 'main.cs'
-	In here I have tested my implementation. First I just made a random matrix with a
-	random guess on the eigenvector. Afterwards i timed how the different matrix sizes
-	had an impact on the rumtime, this data has been plotted, and can be found in
+	In here I have tested my implementation. First I just made a random symmetric matrix
+	with a random guess on the eigenvector. Afterwards i timed how the different matrix 
+	sizes had an impact on the rumtime, this data has been plotted, and can be found in
 	'scaling.png'. Lastly I found the ground state of the Hydrogen atom. To do so I 
 	reused a function that I used in one of the Homeworks, where the Hamiltonian was
 	defined. The choice of rmax = 10 also comes from the r-convergence we did in a 
