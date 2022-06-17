@@ -2,15 +2,16 @@ _______________________________________________________________________________
 
 Testing if we can find the lowest eigenvalue and its eigenvector of a random 5x5 matrix...
 Random matrix A = 
-     0.601     0.0643        0.8      0.691      0.968 
-    0.0643       0.28      0.151      0.198       0.75 
-       0.8      0.151     0.0481      0.536      0.367 
-     0.691      0.198      0.536      0.795      0.533 
-     0.968       0.75      0.367      0.533      0.134 
-Lowest eigenvalue, e, of A is -0.951432731536739
-Eigenvector x =     -0.739     -0.587      0.348    -0.0434       0.97 
+     0.703      0.259      0.568      0.673      0.118 
+     0.259      0.667      0.441      0.373      0.367 
+     0.568      0.441      0.248      0.502    0.00542 
+     0.673      0.373      0.502     0.0776      0.718 
+     0.118      0.367    0.00542      0.718      0.573 
+Lowest eigenvalue, e, of A is -0.688532155778722
+Eigenvector x =     -0.255     0.0474     -0.336      0.879     -0.488 
 Testing if Ax = ex...
 Ax = ex, the right eigenvalue and eigenvector was found!
+The error is 0.00104449196961672
 
 _______________________________________________________________________________
 
@@ -21,6 +22,6 @@ _______________________________________________________________________________
 
 We will now try to find the ground state of the Hydrogen atom
 Finding the ground state with a 50x50 Hamiltonian with rmax = 10...
-The found ground state energy is: -0.494927917636723 Hartree
+The found ground state energy is: -0.494815524924208 Hartree
 The tabel value is given by: -0.5 Hartree
-The difference is 0.00507208236327689 Hartree
+The difference is 0.00518447507579167 Hartree

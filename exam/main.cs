@@ -22,11 +22,14 @@ class main{
 
 		var Ax = A*x;
 		var ex = e*x;
-		if((Ax - ex).norm() < 0.01) {
+		double err = (Ax - ex).norm();
+		if(err < 0.01) {
 			WriteLine("Ax = ex, the right eigenvalue and eigenvector was found!");
+			WriteLine($"The error is {err}");
 		}
 		else {
 			WriteLine("Ax != ex, the pression is either not good enough or the wrong values has been found.");
+			WriteLine($"The error is {err}");
 		}
 
 		WriteLine("");
