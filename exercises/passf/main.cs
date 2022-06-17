@@ -5,31 +5,16 @@ using static System.Math;
 
 public class passf {
 	public static void Main() {
-		table(1);
-		table(2);
-		table(3);
+		WriteLine($"Table of Sin(x) from 0 to {1*PI} in steps of {1*PI/10}:");
+		tab(1);
+		WriteLine("");
+		WriteLine($"Table of Sin(2x) from 0 to {2*PI} in steps of {2*PI/10}:");
+		tab(2);
+		WriteLine("");
+		WriteLine($"Table of Sin(3x) from 0 to {3*PI} in steps of {3*PI/10}:");
+		tab(3);
 	}
-	public static void table(double k) {
-		make_table(Sin, 0, k*PI, k*PI/10);	
-	}
-
-	static void make_table(Func<double, double> f, double a, double b, double dx) {
-		//List<string> list = new List<string>();
-		
-		WriteLine($"Printing table from x = {a} to x = {b} in steps of {dx} of the function:");
-		WriteLine(f);
-		if(a > b) {
-			WriteLine($"{a} {f(a)}");
-			return;
-		}
-		else {
-			WriteLine($"{a} {f(a)}");
-			for(double x = 1; a + x*dx < b; x+=1) {
-				WriteLine($"{a + x*dx} {f(a + x*dx)}");
-			}
-
-			WriteLine($"{b} {f(b)}");
-			return;
-		}
+	public static void tab(double k) {
+		table.make_table(Sin, 0, k*PI, k*PI/10);
 	}
 }
